@@ -1,0 +1,137 @@
+# HengSeng Sentiment Price Prediction Agent - Configuration
+exchange: "hkex" # Options: hkex, krx
+history_days: 45
+sentiment_lookback_days: 10
+
+exa:
+  num_results_per_asset: 20
+  use_autoprompt: true
+  days_back: 10
+  highlights: true
+
+tavily:
+  max_results: 15
+  search_depth: "advanced"
+  include_raw_content: false
+
+model:
+  lookback_days: 45
+  forecast_horizon: 1 # predict price at n+1
+  cv_n_splits: 5
+  test_size_days: 10
+  model_type: "ensemble" # ridge, random_forest, gradient_boosting, ensemble
+  random_state: 42
+
+exchanges:
+  hkex:
+    exchange_id: "hkex"
+    exchange_name: "Hong Kong Stock Exchange"
+    currency: "HKD"
+    timezone: "UTC"
+    market_open_utc: "01:30"
+    market_close_utc: "08:00"
+    assets:
+      - ticker: "0700.HK"
+        name: "Tencent Holdings"
+        keywords: ["Tencent", "腾讯", "騰訊", "WeChat", "0700"]
+        cashtags: ["#0700", "$0700", "#Tencent"]
+      - ticker: "9988.HK"
+        name: "Alibaba Group"
+        keywords: ["Alibaba", "阿里巴巴", "阿里", "Taobao", "9988"]
+        cashtags: ["#9988", "$9988", "#BABA"]
+      - ticker: "0005.HK"
+        name: "HSBC Holdings"
+        keywords: ["HSBC", "汇丰", "滙豐", "0005"]
+        cashtags: ["#0005", "$0005", "#HSBC"]
+      - ticker: "3690.HK"
+        name: "Meituan"
+        keywords: ["Meituan", "美团", "美團", "KeeTa", "3690"]
+        cashtags: ["#3690", "$3690", "#Meituan"]
+      - ticker: "9618.HK"
+        name: "JD.com"
+        keywords: ["JD.com", "京东", "京東", "9618"]
+        cashtags: ["#9618", "$9618", "#JD"]
+    social_sources:
+      - name: "telegram_hk_markets"
+        actor_id: "apify/telegram-scraper"
+        description: "Hong Kong retail trading communities & financial telegram channels"
+        default_run_input:
+          maxMessages: 100
+          onlyNewMessages: false
+        enabled: true
+      - name: "lihkg_finance_forum"
+        actor_id: "actor-registry/lihkg-crawler"
+        description: "LIHKG Hong Kong stock & financial debate threads"
+        default_run_input:
+          category: "finance"
+          maxPosts: 60
+        enabled: true
+      - name: "futu_moomoo_community"
+        actor_id: "apify/web-scraper"
+        description: "Futu / Moomoo retail investor forum & quote comments scraper"
+        default_run_input:
+          pageFunction: "futu_scraper_v1"
+          maxItems: 50
+        enabled: true
+      - name: "aastocks_etnet_comments"
+        actor_id: "apify/cheerio-scraper"
+        description: "AAStocks and ETNet market commentary & retail quotes scraper"
+        default_run_input:
+          maxRequestsPerCrawl: 50
+        enabled: true
+
+  krx:
+    exchange_id: "krx"
+    exchange_name: "Korea Exchange"
+    currency: "KRW"
+    timezone: "UTC"
+    market_open_utc: "00:00"
+    market_close_utc: "06:30"
+    assets:
+      - ticker: "005930.KS"
+        name: "Samsung Electronics"
+        keywords: ["Samsung Electronics", "삼성전자", "삼전", "005930"]
+        cashtags: ["#005930", "$005930", "#Samsung"]
+      - ticker: "000660.KS"
+        name: "SK Hynix"
+        keywords: ["SK Hynix", "SK하이닉스", "하이닉스", "000660"]
+        cashtags: ["#000660", "$000660", "#Hynix"]
+      - ticker: "035420.KS"
+        name: "NAVER Corporation"
+        keywords: ["NAVER", "네이버", "035420"]
+        cashtags: ["#035420", "$035420", "#NAVER"]
+      - ticker: "035720.KS"
+        name: "Kakao"
+        keywords: ["Kakao", "카카오", "035720"]
+        cashtags: ["#035720", "$035720", "#Kakao"]
+      - ticker: "005380.KS"
+        name: "Hyundai Motor"
+        keywords: ["Hyundai Motor", "현대차", "현대자동차", "005380"]
+        cashtags: ["#005380", "$005380", "#Hyundai"]
+    social_sources:
+      - name: "naver_finance_board"
+        actor_id: "apify/web-scraper"
+        description: "Naver Finance Stock Discussion Boards (종목토론실)"
+        default_run_input:
+          target: "finance.naver.com/item/board.naver"
+          maxPosts: 60
+        enabled: true
+      - name: "daum_finance_forum"
+        actor_id: "apify/cheerio-scraper"
+        description: "Daum Finance community stock forums"
+        default_run_input:
+          target: "finance.daum.net"
+          maxPosts: 50
+        enabled: true
+      - name: "kakaotalk_telegram_kr"
+        actor_id: "apify/telegram-scraper"
+        description: "South Korea equity trading open groups & telegram alert rooms"
+        default_run_input:
+          maxMessages: 100
+        enabled: true
+      - name: "blind_kr_insider"
+        actor_id: "apify/puppeteer-scraper"
+        description: "Blind verified employee sentiment & chaebol enterprise discussions"
+        default_run_input:
+          maxItems: 40
+        enabled: true
