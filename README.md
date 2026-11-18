@@ -63,7 +63,7 @@ Developed for the **CrowdWisdomTrading (CWT)** quantitative research assessment.
 
 ### 1. Clone & Set Up Environment
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/uday986675/HengSeng-Sentiment-Price-Prediction-agent
 cd "HengSeng Sentiment Price Prediction agent"
 python -m venv venv
 # Windows:
