@@ -115,3 +115,4 @@ class SentimentPricePredictor:
                 
         subset = X_df[self.feature_columns].fillna(0.0)
         return subset.to_numpy(dtype=float)
+

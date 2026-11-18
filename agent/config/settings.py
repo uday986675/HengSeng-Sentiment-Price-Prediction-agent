@@ -213,3 +213,4 @@ def get_default_config(exchange: Literal["hkex", "krx"] = "hkex") -> PipelineCon
         exchange=exchange,
         exchanges=exchanges
     )
+

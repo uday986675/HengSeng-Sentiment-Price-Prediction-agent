@@ -24,3 +24,4 @@ def setup_logger(name: str = "HengSengAgent", level: str = None) -> logging.Logg
         logger.addHandler(console_handler)
         
     return logger
+

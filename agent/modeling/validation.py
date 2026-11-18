@@ -97,3 +97,4 @@ def calculate_metrics(y_true_price: np.ndarray, y_pred_price: np.ndarray, curren
         "MAPE_pct": round(mape, 2),
         "Directional_Accuracy_pct": round(directional_accuracy, 2)
     }
+

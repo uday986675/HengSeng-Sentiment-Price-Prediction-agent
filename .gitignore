@@ -71,3 +71,4 @@ Thumbs.db
 # Project outputs (allow keeping sample reports and parquet caches if tracked explicitly)
 data/cache/
 *.log
+

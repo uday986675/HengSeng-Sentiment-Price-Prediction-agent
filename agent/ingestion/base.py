@@ -95,3 +95,4 @@ class BasePriceClient(ABC):
     ) -> List[PriceBar]:
         """Fetch daily OHLCV bars aligned to UTC."""
         pass
+

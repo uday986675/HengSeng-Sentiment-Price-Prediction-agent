@@ -278,3 +278,4 @@ HengSeng Sentiment Price Prediction agent/
 1. **Daily Frequency Alignment**: The system operates on daily market bars. Intraday social bursts occurring between 08:00 UTC and 16:00 UTC are aggregated into the next available trading session bar.
 2. **Retail Noise vs Institutional Order Flow**: Retail forum sentiment (LIHKG, Naver 종목토론실) can be subject to echo chambers and manipulation; therefore, engagement weights and Exa news cross-checks are vital filters.
 3. **Execution Friction**: Backtests evaluate price at bar close $P_n$ predicting $P_{n+1}$; real-world production execution should account for bid-ask spread and Hong Kong Stamp Duty (0.10%).
+

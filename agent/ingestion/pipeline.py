@@ -231,3 +231,4 @@ class IngestionPipeline:
         df = df.drop_duplicates(subset=["ticker", "timestamp"])
         df = df.sort_values(["ticker", "timestamp"]).reset_index(drop=True)
         return df
+

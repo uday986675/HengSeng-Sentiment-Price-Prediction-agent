@@ -514,3 +514,4 @@ class VisualReportGenerator:
 </body>
 </html>
 """
+

@@ -125,3 +125,4 @@ class ApifySocialScraper(BaseSocialScraper):
         if "blind" in actor_lower:
             return "blind"
         return "community_forum"
+

@@ -237,3 +237,4 @@ class SyntheticFeedGenerator:
 
         logger.info(f"Synthesized {len(articles)} news articles for {ticker} over {days_back} days.")
         return sorted(articles, key=lambda x: x.timestamp)
+

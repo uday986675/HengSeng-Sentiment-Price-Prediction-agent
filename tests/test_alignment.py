@@ -83,3 +83,4 @@ def test_utc_alignment_and_no_lookahead():
 
     # 3. Last row must have NaN for target_next_close because future is unknown (no lookahead!)
     assert pd.isna(ml_df.iloc[-1]["target_next_close"])
+

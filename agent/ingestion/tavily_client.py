@@ -150,3 +150,4 @@ class TavilyIngestionClient(BaseNewsClient, BaseSocialScraper):
             )
 
         return posts
+

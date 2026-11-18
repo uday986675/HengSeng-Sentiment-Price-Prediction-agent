@@ -128,3 +128,4 @@ def test_feature_engineer_metrics():
     assert "sentiment_momentum" in ml_df.columns
     assert "news_social_divergence" in ml_df.columns
     assert summary.suggested_position in ["LONG", "SHORT", "NEUTRAL"]
+

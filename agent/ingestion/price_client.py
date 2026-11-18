@@ -168,3 +168,4 @@ class YFinancePriceClient(BasePriceClient):
             
         logger.info(f"Synthesized {len(data)} realistic price bars for {ticker}")
         return pd.DataFrame(data)
+

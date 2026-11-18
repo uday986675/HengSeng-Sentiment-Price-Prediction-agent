@@ -5,3 +5,4 @@ using alternative social and news sentiment signals for HKEX and KRX equities.
 """
 
 __version__ = "1.0.0"
+

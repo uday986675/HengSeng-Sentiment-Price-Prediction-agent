@@ -92,3 +92,4 @@ class TechnicalAnalyzer:
         # Fill NaNs
         df = df.bfill().ffill()
         return df
+

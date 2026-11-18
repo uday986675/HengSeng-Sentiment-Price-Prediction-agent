@@ -80,3 +80,4 @@ def test_exa_mock_client():
     assert len(articles) > 0
     assert articles[0].ticker == "0700.HK"
     assert hasattr(articles[0], "relevance_score")
+
